@@ -17,10 +17,11 @@
 
     'data': [
         'security/ir.model.access.csv',
-        'views/odoo_project_hr_hospital_menu.xml',
-        'views/odoo_project_hr_hospital_doctors_views.xml',
-        'views/odoo_project_hr_hospital_patients_views.xml',
-        'views/odoo_project_hr_hospital_diseases_views.xml',
+        'views/odoo_project_hospital_menu.xml',
+        'views/odoo_project_hospital_doctors_views.xml',
+        'views/odoo_project_hospital_patients_views.xml',
+        'views/odoo_project_hospital_diseases_views.xml',
+        'views/odoo_project_hospital_visits_views.xml',
     ],
 
     'demo': [

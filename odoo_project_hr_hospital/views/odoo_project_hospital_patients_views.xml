@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="odoo_project_hr_hospital_patients_tree" model="ir.ui.view">
-        <field name="name">odoo.project.hr.hospital.patients.tree</field>
-        <field name="model">odoo.project.hr.hospital.patients</field>
+    <record id="odoo_project_hospital_patients_tree" model="ir.ui.view">
+        <field name="name">odoo.project.hospital.patients.tree</field>
+        <field name="model">odoo.project.hospital.patients</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
@@ -10,9 +10,9 @@
             </tree>
         </field>
     </record>
-    <record id="odoo_project_hr_hospital_patients_form" model="ir.ui.view">
-        <field name="name">odoo.project.hr.hospital.patients.form</field>
-        <field name="model">odoo.project.hr.hospital.patients</field>
+    <record id="odoo_project_hospital_patients_form" model="ir.ui.view">
+        <field name="name">odoo.project.hospital.patients.form</field>
+        <field name="model">odoo.project.hospital.patients</field>
         <field name="arch" type="xml">
             <form>
                 <header></header>
@@ -27,14 +27,14 @@
             </form>
         </field>
     </record>
-    <record id="action_odoo_project_hr_hospital_patients_window" model="ir.actions.act_window">
+    <record id="action_odoo_project_hospital_patients_window" model="ir.actions.act_window">
         <field name="name">Patients</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">odoo.project.hr.hospital.patients</field>
+        <field name="res_model">odoo.project.hospital.patients</field>
         <field name="view_mode">tree,form</field>
     </record>
-    <menuitem id="odoo_project_hr_hospital_menu_patients"
-              action="action_odoo_project_hr_hospital_patients_window"
-              parent="odoo_project_hr_hospital_menu_catalog"
+    <menuitem id="odoo_project_hospital_menu_patients"
+              action="action_odoo_project_hospital_patients_window"
+              parent="odoo_project_hospital_menu_catalog"
               name="Patients" sequence="200"/>
 </odoo>
