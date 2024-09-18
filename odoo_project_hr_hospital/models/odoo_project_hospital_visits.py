@@ -3,6 +3,7 @@ from odoo import models, fields
 
 _logger = logging.getLogger(__name__)
 
+
 class HRHospitalVisits(models.Model):
     _name = 'odoo.project.hospital.visits'
     _description = 'Patient visits'
