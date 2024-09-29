@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="odoo_project_hospital_diagnosis_tree" model="ir.ui.view">
+        <field name="name">odoo.project.hospital.diagnosis.tree</field>
+        <field name="model">odoo.project.hospital.diagnosis</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="is_approved"/>
+            </tree>
+        </field>
+    </record>
+    <record id="odoo_project_hospital_diagnosis_form" model="ir.ui.view">
+        <field name="name">odoo.project.hospital.diagnosis.form</field>
+        <field name="model">odoo.project.hospital.diagnosis</field>
+        <field name="arch" type="xml">
+            <form>
+                <header></header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="is_approved"/>
+                        </group>
+                        <group>
+                            <field name="visit_id"/>
+                            <field name="disease_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_odoo_project_hospital_diagnosis_window" model="ir.actions.act_window">
+        <field name="name">Diagnosis</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">odoo.project.hospital.diagnosis</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="odoo_project_hospital_menu_diagnosis"
+              action="action_odoo_project_hospital_diagnosis_window"
+              parent="odoo_project_hospital_menu_catalog"
+              name="Diagnosis" sequence="200"/>
+</odoo>
