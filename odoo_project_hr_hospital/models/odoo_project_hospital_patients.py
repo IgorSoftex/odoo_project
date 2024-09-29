@@ -7,7 +7,7 @@ _logger = logging.getLogger(__name__)
 class HRHospitalPatients(models.Model):
     _name = 'odoo.project.hospital.patients'
     _description = 'Patients'
+    _inherit = "odoo.project.hospital.person"
 
-    name = fields.Char()
     active = fields.Boolean(default=True)
     description = fields.Text()
