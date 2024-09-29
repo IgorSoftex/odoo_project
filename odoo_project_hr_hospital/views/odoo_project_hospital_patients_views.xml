@@ -23,6 +23,7 @@
                     <group>
                         <field name="name"/>
                         <field name="surname"/>
+                        <field name="personal_doctor_id"/>
                         <field name="gender" widget="radio"/>
                     </group>
                     <group>

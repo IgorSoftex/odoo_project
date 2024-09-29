@@ -8,6 +8,18 @@ class HRHospitalDoctors(models.Model):
     _name = 'odoo.project.hospital.doctors'
     _description = 'Doctors'
     _inherit = "odoo.project.hospital.person"
+    _rec_name = 'full_name'
 
+    full_name = fields.Char(
+        string="Full name",
+        compute='_compute_full_name',
+        store=False,
+        readonly=True,
+    )
     active = fields.Boolean(default=True)
     description = fields.Text()
+
+    @api.depends('name', 'surname')
+    def _compute_full_name(self):
+        for doctor in self:
+            doctor.full_name = doctor.name + ' ' + doctor.surname
