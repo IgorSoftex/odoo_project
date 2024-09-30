@@ -10,7 +10,7 @@ class HRHospitalExtendedPatients(models.Model):
 
     personal_doctor_id = fields.Many2one(
         comodel_name='odoo.project.hospital.doctors',
-        string='Personal doctor',
+        string='Personal Doctor',
     )
     date_of_birth = fields.Date(
         string='Date Of Birth',

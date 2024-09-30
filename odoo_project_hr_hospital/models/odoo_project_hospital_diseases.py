@@ -6,7 +6,7 @@ _logger = logging.getLogger(__name__)
 
 class HRHospitalDiseases(models.Model):
     _name = 'odoo.project.hospital.diseases'
-    _description = 'Diseases'
+    _description = 'Diseases' #Diseases
 
     name = fields.Char()
     active = fields.Boolean(default=True)

@@ -6,7 +6,7 @@ class Person(models.AbstractModel):
     This is an abstract model
     """
     _name = "odoo.project.hospital.person"
-    _description = "Person (abstract)"
+    _description = "Person (Abstract)"
 
     description = fields.Text()
     name = fields.Char(
