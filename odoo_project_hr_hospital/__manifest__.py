@@ -23,6 +23,7 @@
         'views/odoo_project_hospital_diseases_views.xml',
         'views/odoo_project_hospital_visits_views.xml',
         'views/odoo_project_hospital_diagnosis_views.xml',
+        'views/odoo_project_hospital_contact_person_views.xml',
     ],
 
     'demo': [

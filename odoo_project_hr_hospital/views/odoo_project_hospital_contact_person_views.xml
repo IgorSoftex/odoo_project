@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="odoo_project_hospital_contact_person_tree" model="ir.ui.view">
+        <field name="name">odoo.project.hospital.contact.person.tree</field>
+        <field name="model">odoo.project.hospital.contact.person</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="surname"/>
+                <field name="gender"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record id="odoo_project_hospital_contact_person_form" model="ir.ui.view">
+        <field name="name">odoo.project.hospital.contact.person.form</field>
+        <field name="model">odoo.project.hospital.contact.person</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                </header>
+                <sheet>
+                    <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="surname"/>
+                        <field name="gender" widget="radio"/>
+                    </group>
+                    <group>
+                        <field name="phone"/>
+                        <field name="description"/>
+                        <field name="photo" widget="image"/>
+                    </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_odoo_project_hospital_contact_person_window" model="ir.actions.act_window">
+        <field name="name">Contact Person</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">odoo.project.hospital.contact.person</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="odoo_project_hospital_menu_contact_person"
+              action="action_odoo_project_hospital_contact_person_window"
+              parent="odoo_project_hospital_menu_catalog"
+              name="Contact Persons" sequence="200"/>
+</odoo>

@@ -8,6 +8,7 @@ class Person(models.AbstractModel):
     _name = "odoo.project.hospital.person"
     _description = "Person (abstract)"
 
+    description = fields.Text()
     name = fields.Char(
         translate=True,
         size=100,
@@ -15,6 +16,12 @@ class Person(models.AbstractModel):
     surname = fields.Char(
         translate=True,
         size=100,
+    )
+    full_name = fields.Char(
+        string="Full name",
+        compute='_compute_full_name',
+        store=False,
+        readonly=True,
     )
     phone = fields.Char(
         size=40,
@@ -29,3 +36,14 @@ class Person(models.AbstractModel):
         max_width=512,
         max_height=512,
     )
+    active = fields.Boolean(
+        default=True,
+    )
+
+    @api.depends('name', 'surname')
+    def _compute_full_name(self):
+        for person in self:
+            if person.name and person.surname:
+                person.full_name = person.name + ' ' + person.surname
+            else:
+                person.full_name = ''

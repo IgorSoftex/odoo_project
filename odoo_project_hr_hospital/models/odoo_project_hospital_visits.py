@@ -16,25 +16,29 @@ class HRHospitalVisits(models.Model):
     )
     visit_date = fields.Datetime(
         string='Visit date',
-        required=True)
+        required=True,
+    )
     active = fields.Boolean(
-        default=True)
+        default=True,
+    )
     description = fields.Text(
         string='Symptoms',
         help='Description of symptoms',
     )
     patient_id = fields.Many2one(
         comodel_name='odoo.project.hospital.patients',
-        string='Patient')
+        string='Patient',
+    )
     doctor_id = fields.Many2one(
         comodel_name='odoo.project.hospital.doctors',
-        string='Doctor')
+        string='Doctor',
+    )
 
     @api.depends('visit_date', 'patient_id', 'doctor_id')
     def _compute_visit_name(self):
         # print('self:', self)
         for visit in self:
             visit.name = (str(visit.visit_date)
-                          +' '+visit.patient_id.name+' '+visit.patient_id.surname
-                          +'; doctor: '+visit.doctor_id.name+' '+visit.doctor_id.surname
+                          + ' ' + visit.patient_id.name + ' ' + visit.patient_id.surname
+                          + '; doctor: ' + visit.doctor_id.name + ' ' + visit.doctor_id.surname
                           )
