@@ -5,6 +5,7 @@
         <field name="model">odoo.project.hospital.visits</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="scheduled_visit_date"/>
                 <field name="visit_date"/>
                 <field name="patient_id"/>
                 <field name="doctor_id"/>
@@ -21,14 +22,25 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="visit_date"/>
-                            <field name="description"/>
+                            <field name="scheduled_visit_date" readonly="state == 'completed'"/>
+                            <field name="visit_date" readonly="state == 'completed'"/>
+                            <field name="state" widget="radio"/>
                         </group>
                         <group>
-                            <field name="patient_id" />
-                            <field name="doctor_id" />
+                            <field name="description" readonly="state == 'completed'"/>
+                            <field name="patient_id" readonly="state == 'completed'"/>
+                            <field name="doctor_id" readonly="state == 'completed'"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Diagnosis">
+                            <group>
+                                <group>
+                                    <field name="diagnosis_ids" readonly="state == 'completed'"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
