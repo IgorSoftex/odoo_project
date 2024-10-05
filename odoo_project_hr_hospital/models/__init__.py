@@ -7,3 +7,4 @@ from . import odoo_project_hospital_visits
 from . import odoo_project_hospital_extended_visits
 from . import odoo_project_hospital_diagnosis
 from . import odoo_project_hospital_contact_person
+from . import odoo_project_hospital_specialization

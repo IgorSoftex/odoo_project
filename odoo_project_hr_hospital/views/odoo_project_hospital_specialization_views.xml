@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="odoo_project_hospital_specialization_tree" model="ir.ui.view">
+        <field name="name">odoo.project.hospital.specialization.tree</field>
+        <field name="model">odoo.project.hospital.specialization</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="competences"/>
+            </tree>
+        </field>
+    </record>
+    <record id="odoo_project_hospital_specialization_form" model="ir.ui.view">
+        <field name="name">odoo.project.hospital.specialization.form</field>
+        <field name="model">odoo.project.hospital.specialization</field>
+        <field name="arch" type="xml">
+            <form>
+                <header></header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="competences"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_odoo_project_hospital_specialization_window" model="ir.actions.act_window">
+        <field name="name">Specialization</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">odoo.project.hospital.specialization</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="odoo_project_hospital_menu_specialization"
+              action="action_odoo_project_hospital_specialization_window"
+              parent="odoo_project_hospital_menu_catalog"
+              name="Specialization" sequence="200"/>
+</odoo>

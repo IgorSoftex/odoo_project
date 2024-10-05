@@ -73,10 +73,10 @@ class HRHospitalExtendedVisits(models.Model):
 
     @api.constrains('scheduled_visit_date', 'patient_id', 'doctor_id')
     def _check_unique_visit(self):
-        print('self.name:', self.name, 'self.scheduled_visit_date:', self.scheduled_visit_date, 'self.patient_id:', self.patient_id, 'self.doctor_id:', self.doctor_id)
-        print('time.min', datetime.combine(self.scheduled_visit_date, time.min))
-        print('time.max', datetime.combine(self.scheduled_visit_date, time.max))
-        if self.search([('scheduled_visit_date', '>=', datetime.combine(self.scheduled_visit_date, time.min))]):
-            print('ERROR')
-        else:
-            print('Not ERROR')
+        records = self.search([('scheduled_visit_date', '>=', datetime.combine(self.scheduled_visit_date, time.min)),
+                               ('scheduled_visit_date', '<=', datetime.combine(self.scheduled_visit_date, time.max)),
+                               ('patient_id', '=', self.patient_id.id),
+                               ('doctor_id', '=', self.doctor_id.id),
+                               ])
+        if records and len(records) > 1:
+            raise UserError("It can't be two visits of the patient to the doctor on this day")

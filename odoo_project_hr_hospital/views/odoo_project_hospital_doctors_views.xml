@@ -8,6 +8,7 @@
                 <field name="name"/>
                 <field name="surname"/>
                 <field name="gender"/>
+                <field name="specialization_id"/>
                 <field name="description"/>
             </tree>
         </field>
@@ -24,10 +25,13 @@
                     <group>
                         <field name="name"/>
                         <field name="surname"/>
+                        <field name="specialization_id"/>
                         <field name="gender" widget="radio"/>
                     </group>
                     <group>
                         <field name="phone"/>
+                        <field name="intern"/>
+                        <field name="mentor_doctor_id" readonly="intern != True"/>
                         <field name="description"/>
                         <field name="photo" widget="image"/>
                     </group>
