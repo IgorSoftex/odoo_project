@@ -36,7 +36,7 @@
                         <page string="Diagnosis">
                             <group>
                                 <group>
-                                    <field name="diagnosis_ids" readonly="state == 'completed'"/>
+                                    <field name="diagnosis_ids" readonly="state == 'completed'" widget="many2many_tags" can_create="false"/>
                                 </group>
                             </group>
                         </page>
