@@ -5,6 +5,11 @@
         <field name="model">odoo.project.hospital.patients</field>
         <field name="arch" type="xml">
             <tree>
+                <header>
+                    <button name="%(odoo_project_hr_hospital.appoint_a_personal_doctor_act_window)d"
+                            string="Define a Personal Doctor"
+                            type="action"/>
+                </header>
                 <field name="name"/>
                 <field name="surname"/>
                 <field name="gender"/>
@@ -17,8 +22,6 @@
         <field name="model">odoo.project.hospital.patients</field>
         <field name="arch" type="xml">
             <form>
-                <header>
-                </header>
                 <sheet>
                     <group>
                         <group>
@@ -47,18 +50,8 @@
         <field name="res_model">odoo.project.hospital.patients</field>
         <field name="view_mode">tree,form</field>
     </record>
-<!--    <record id="action_odoo_project_hospital_personal_doctor_for_patients_wizard_window" model="ir.actions.act_window">
-        <field name="name">Assign a Personal Doctor</field>
-        <field name="type">ir.actions.act_window</field>
-        <field name="res_model">odoo.project.hospital.personal.doctor.for.patients.wizard</field>
-        <field name="view_mode">tree,form</field>
-    </record> -->
     <menuitem id="odoo_project_hospital_menu_patients"
               action="action_odoo_project_hospital_patients_window"
               parent="odoo_project_hospital_menu_catalog"
               name="Patients" sequence="200"/>
-<!--    <menuitem id="odoo_project_hospital_menu_personal_doctor_for_patients"
-              action="action_odoo_project_hospital_personal_doctor_for_patients_wizard_window"
-              parent="odoo_project_hospital_menu_catalog"
-              name="Assign a Personal Doctor" sequence="200"/> -->
 </odoo>

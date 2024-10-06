@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class HRHospitalPersonalDoctorForPatients(models.TransientModel):
@@ -21,3 +21,11 @@ class HRHospitalPersonalDoctorForPatients(models.TransientModel):
         self.patient_ids.update({
             'personal_doctor_id': self.doctor_id.id,
         })
+
+    @api.model
+    def default_get(self, fields):
+        res = super().default_get(fields)
+        if self.env.context.get('active_ids'):
+            patient_ids = self.env['odoo.project.hospital.patients'].browse(self.env.context.get('active_ids'))
+            res['patient_ids'] = patient_ids
+        return res
