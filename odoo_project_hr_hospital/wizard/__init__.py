@@ -1,1 +1,2 @@
 from . import odoo_project_hospital_personal_doctor_for_patients_wizard
+from . import odoo_project_hospital_diseases_report_wizard

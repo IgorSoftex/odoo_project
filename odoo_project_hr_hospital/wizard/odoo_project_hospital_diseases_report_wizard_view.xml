@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="odoo_project_hospital_diseases_report_form_view" model="ir.ui.view">
+            <field name="name">odoo.project.hospital.diseases.report.form</field>
+            <field name="model">odoo.project.hospital.diseases.report.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Diseases Report">
+                    <group>
+                        <group>
+                            <field name="begin_date"/>
+                            <field name="end_date"/>
+                            <field name="doctor_ids" widget="many2many_tags"/>
+                            <field name="diseases_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Diseases  Report"
+                                name="run_diseases_report" type="object"
+                                class="btn-primary" data-hotkey="d"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"
+                                data-hotkey="x"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="appoint_a_personal_doctor_act_window" model="ir.actions.act_window">
+            <field name="name">Diseases Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">odoo.project.hospital.diseases.report.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="odoo_project_hospital_diseases_report_form_view"/>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="model_odoo_project_hospital_doctors"/>
+            <field name="binding_view_types">list</field>
+        </record>
+
+    </data>
+</odoo>
