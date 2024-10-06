@@ -26,7 +26,6 @@ class HRHospitalDiseasesReport(models.TransientModel):
     )
 
     def run_diseases_report(self):
-        print('HRHospitalDiseasesReport: run_diseases_report()')
         domain = [
             ('visit_id.visit_date', '>=', self.begin_date),
             ('visit_id.visit_date', '<=', self.end_date),
