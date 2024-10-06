@@ -1,0 +1,1 @@
+from . import odoo_project_hospital_personal_doctor_for_patients_wizard

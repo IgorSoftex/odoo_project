@@ -18,6 +18,8 @@
         <field name="arch" type="xml">
             <form>
                 <header>
+<!--			        <button name="odoo_project_hospital_personal_doctor_for_patients_wizard_action"
+					    string="Appoint a personal doctor for patients" type="action"/> -->
                 </header>
                 <group>
                     <group>
