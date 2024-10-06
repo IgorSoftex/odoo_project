@@ -1,9 +1,6 @@
-import logging
 from datetime import datetime, time
 from odoo import models, fields, api
 from odoo.exceptions import UserError
-
-_logger = logging.getLogger(__name__)
 
 
 class HRHospitalExtendedVisits(models.Model):
@@ -77,10 +74,11 @@ class HRHospitalExtendedVisits(models.Model):
 
     @api.constrains('scheduled_visit_date', 'patient_id', 'doctor_id')
     def _check_unique_visit(self):
-        records = self.search([('scheduled_visit_date', '>=', datetime.combine(self.scheduled_visit_date, time.min)),
-                               ('scheduled_visit_date', '<=', datetime.combine(self.scheduled_visit_date, time.max)),
-                               ('patient_id', '=', self.patient_id.id),
-                               ('doctor_id', '=', self.doctor_id.id),
-                               ])
+        records = self.search(
+            [('scheduled_visit_date', '>=', datetime.combine(self.scheduled_visit_date, time.min)),
+             ('scheduled_visit_date', '<=', datetime.combine(self.scheduled_visit_date, time.max)),
+             ('patient_id', '=', self.patient_id.id),
+             ('doctor_id', '=', self.doctor_id.id),
+            ])
         if records and len(records) > 1:
             raise UserError("It can't be two visits of the patient to the doctor on this day")

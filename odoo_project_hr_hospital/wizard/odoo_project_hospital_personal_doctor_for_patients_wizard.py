@@ -26,6 +26,7 @@ class HRHospitalPersonalDoctorForPatients(models.TransientModel):
     def default_get(self, fields):
         res = super().default_get(fields)
         if self.env.context.get('active_ids'):
-            patient_ids = self.env['odoo.project.hospital.patients'].browse(self.env.context.get('active_ids'))
+            patient_ids = (self.env['odoo.project.hospital.patients']
+                           .browse(self.env.context.get('active_ids')))
             res['patient_ids'] = patient_ids
         return res
