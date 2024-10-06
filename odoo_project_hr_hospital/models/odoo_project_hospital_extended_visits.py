@@ -55,13 +55,17 @@ class HRHospitalExtendedVisits(models.Model):
         for visit in self:
             if visit.scheduled_visit_date:
                 visit.name = (str(visit.scheduled_visit_date)
-                              + ' ' + visit.patient_id.name + ' ' + visit.patient_id.surname
-                              + '; doctor: ' + visit.doctor_id.name + ' ' + visit.doctor_id.surname
+                              + ' ' + visit.patient_id.name
+                              + ' ' + visit.patient_id.surname
+                              + '; doctor: ' + visit.doctor_id.name
+                              + ' ' + visit.doctor_id.surname
                               )
             elif visit.visit_date:
                 visit.name = (str(visit.visit_date)
-                              + ' ' + visit.patient_id.name + ' ' + visit.patient_id.surname
-                              + '; doctor: ' + visit.doctor_id.name + ' ' + visit.doctor_id.surname
+                              + ' ' + visit.patient_id.name
+                              + ' ' + visit.patient_id.surname
+                              + '; doctor: ' + visit.doctor_id.name
+                              + ' ' + visit.doctor_id.surname
                               )
             else:
                 visit.name = ''

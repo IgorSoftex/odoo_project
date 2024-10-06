@@ -43,6 +43,8 @@ class HRHospitalDiseasesCategory(models.Model):
         for disease_category in self:
             if disease_category.parent_id:
                 disease_category.complete_name = '%s / %s' % (
-                    disease_category.parent_id.complete_name, disease_category.name)
+                    disease_category.parent_id.complete_name,
+                    disease_category.name
+                )
             else:
                 disease_category.complete_name = disease_category.name

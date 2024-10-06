@@ -27,6 +27,23 @@ class HRHospitalDiseasesReport(models.TransientModel):
 
     def run_diseases_report(self):
         print('HRHospitalDiseasesReport: run_diseases_report()')
+        domain = [
+            ('visit_id.visit_date', '>=', self.begin_date),
+            ('visit_id.visit_date', '<=', self.end_date),
+        ]
+        if self.doctor_ids:
+            domain.append(('visit_id.doctor_id', 'in', self.doctor_ids.ids))
+        if self.diseases_ids:
+            domain.append(('disease_id', 'in', self.diseases_ids.ids))
+        diagnoses = self.env['odoo.project.hospital.diagnosis'].search(domain)
+        return {
+            'name': 'Disease Report',
+            'type': 'ir.actions.act_window',
+            'res_model': 'odoo.project.hospital.diagnosis',
+            'view_mode': 'tree,form',
+            'domain': [('id', 'in', diagnoses.ids)],
+            'context': {'group_by': 'disease_id'},
+        }
 
     @api.model
     def default_get(self, fields):

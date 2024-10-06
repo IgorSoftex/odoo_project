@@ -11,15 +11,21 @@
                         <group>
                             <field name="begin_date"/>
                             <field name="end_date"/>
+                        </group>
+                        <group>
                             <field name="doctor_ids" widget="many2many_tags"/>
                             <field name="diseases_ids" widget="many2many_tags"/>
                         </group>
                     </group>
                     <footer>
                         <button string="Diseases  Report"
-                                name="run_diseases_report" type="object"
-                                class="btn-primary" data-hotkey="d"/>
-                        <button string="Cancel" class="btn-secondary" special="cancel"
+                                name="run_diseases_report"
+                                type="object"
+                                class="btn-primary"
+                                data-hotkey="d"/>
+                        <button string="Cancel"
+                                class="btn-secondary"
+                                special="cancel"
                                 data-hotkey="x"/>
                     </footer>
                 </form>
