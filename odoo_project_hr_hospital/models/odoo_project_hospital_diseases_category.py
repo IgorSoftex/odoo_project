@@ -6,7 +6,7 @@ class HRHospitalDiseasesCategory(models.Model):
     _description = 'Diseases category'
     _parent_name = "parent_id"
     _parent_store = True
-    _rec_name = 'complete_name'
+    # _rec_name = 'complete_name'
     _order = 'name'
 
     name = fields.Char()

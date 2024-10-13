@@ -31,6 +31,21 @@
             </form>
         </field>
     </record>
+
+    <record id="odoo_project_hospital_diseases_search" model="ir.ui.view">
+        <field name="name">odoo.project.hospital.diseases.search (odoo_project_hospital)</field>
+        <field name="model">odoo.project.hospital.diseases</field>
+        <field name="arch" type="xml">
+            <search string="Filters">
+            <searchpanel>
+                <field name="disease_category"
+                       enable_counters="1"
+                       expand="1"/>
+            </searchpanel>
+            </search>
+        </field>
+    </record>
+
     <record id="action_odoo_project_hospital_diseases_window" model="ir.actions.act_window">
         <field name="name">Diseases</field>
         <field name="type">ir.actions.act_window</field>
@@ -40,5 +55,6 @@
     <menuitem id="odoo_project_hospital_menu_diseases"
               action="action_odoo_project_hospital_diseases_window"
               parent="odoo_project_hospital_menu_catalog"
-              name="Diseases" sequence="200"/>
+              name="Diseases"
+              sequence="200"/>
 </odoo>
