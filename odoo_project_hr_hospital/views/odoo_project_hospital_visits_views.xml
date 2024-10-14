@@ -89,8 +89,8 @@
                 <field name="doctor_id"
                        domain="[('active', '=', True)]"/>
                 <group string="Group By">
-                    <filter string="State"
-                            name="state"
+                    <filter name="state"
+                            string="State"
                             context="{'group_by': 'state'}"/>
                 </group>
                 <searchpanel>
