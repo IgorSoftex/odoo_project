@@ -7,6 +7,8 @@ class Person(models.AbstractModel):
     """
     _name = "odoo.project.hospital.person"
     _description = "Person (Abstract)"
+    _order = "surname ASC, name ASC"
+    _rec_names_search = ['name', 'surname']
 
     description = fields.Text()
     name = fields.Char(

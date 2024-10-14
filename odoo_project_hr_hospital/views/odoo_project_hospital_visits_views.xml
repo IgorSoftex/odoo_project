@@ -9,6 +9,7 @@
                 <field name="visit_date"/>
                 <field name="patient_id"/>
                 <field name="doctor_id"/>
+                <field name="state"/>
                 <field name="description"/>
             </tree>
         </field>
@@ -18,25 +19,36 @@
         <field name="model">odoo.project.hospital.visits</field>
         <field name="arch" type="xml">
             <form>
-                <header></header>
+                <header>
+                    <field  name="state"
+                            widget="statusbar"
+                            options="{'clickable': '1'}"/>
+                </header>
                 <sheet>
                     <group>
                         <group>
-                            <field name="scheduled_visit_date" readonly="state == 'completed'"/>
-                            <field name="visit_date" readonly="state == 'completed'"/>
-                            <field name="state" widget="radio"/>
+                            <field name="scheduled_visit_date"
+                                   readonly="state == 'completed'"/>
+                            <field name="visit_date"
+                                   readonly="state == 'completed'"/>
                         </group>
                         <group>
-                            <field name="description" readonly="state == 'completed'"/>
-                            <field name="patient_id" readonly="state == 'completed'"/>
-                            <field name="doctor_id" readonly="state == 'completed'"/>
+                            <field name="description"
+                                   readonly="state == 'completed'"/>
+                            <field name="patient_id"
+                                   readonly="state == 'completed'"/>
+                            <field name="doctor_id"
+                                   readonly="state == 'completed'"/>
                         </group>
                     </group>
                     <notebook>
                         <page string="Diagnosis">
                             <group>
                                 <group>
-                                    <field name="diagnosis_ids" readonly="state == 'completed'" widget="many2many_tags" can_create="false"/>
+                                    <field name="diagnosis_ids"
+                                           readonly="state == 'completed'"
+                                           widget="many2many_tags"
+                                           can_create="false"/>
                                 </group>
                             </group>
                         </page>
@@ -45,14 +57,64 @@
             </form>
         </field>
     </record>
+
+    <record id="odoo_project_hospital_visits_calendar" model="ir.ui.view">
+        <field name="name">odoo.project.hospital.visits.calendar (odoo_project_hospital_visits)</field>
+        <field name="model">odoo.project.hospital.visits</field>
+        <field name="priority" eval="10"/>
+        <field name="arch" type="xml">
+            <calendar string="Visits booking"
+                      date_start="scheduled_visit_date"
+                      date_stop="scheduled_visit_date"
+                      create="1"
+                      quick_create="0"
+                      create_name_field="name"
+                      mode="month"
+                      scales="day,week,month,year"
+                      color="name"
+                      event_open_popup="True">
+                <field name="doctor_id"/>
+                <field name="patient_id"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="odoo_project_hospital_visits_search" model="ir.ui.view">
+        <field name="name">odoo.project.hospital.visits.search (odoo_project_hospital_visits)</field>
+        <field name="model">odoo.project.hospital.visits</field>
+        <field name="arch" type="xml">
+            <search string="Filters">
+                <field name="patient_id"
+                       domain="[('active', '=', True)]"/>
+                <field name="doctor_id"
+                       domain="[('active', '=', True)]"/>
+                <group string="Group By">
+                    <filter string="State"
+                            name="state"
+                            context="{'group_by': 'state'}"/>
+                </group>
+                <searchpanel>
+                    <field name="patient_id"
+                           expand="0"
+                           select="multi"/>
+                    <field name="doctor_id"
+                           expand="0"
+                           select="multi"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
     <record id="action_odoo_project_hospital_visits_window" model="ir.actions.act_window">
         <field name="name">Patient visits</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">odoo.project.hospital.visits</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,calendar</field>
     </record>
+
     <menuitem id="odoo_project_hospital_menu_visits"
               action="action_odoo_project_hospital_visits_window"
               parent="odoo_project_hospital_menu_catalog"
-              name="Patient visits" sequence="200"/>
+              name="Patient visits"
+              sequence="200"/>
 </odoo>
