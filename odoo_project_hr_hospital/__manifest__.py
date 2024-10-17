@@ -17,6 +17,8 @@
 
     'data': [
         'security/ir.model.access.csv',
+        'wizard/odoo_project_hospital_personal_doctor_for_patients_wizard_views.xml',
+        'wizard/odoo_project_hospital_diseases_report_wizard_view.xml',
         'views/odoo_project_hospital_menu.xml',
         'views/odoo_project_hospital_doctors_views.xml',
         'views/odoo_project_hospital_patients_views.xml',
@@ -26,8 +28,6 @@
         'views/odoo_project_hospital_diagnosis_views.xml',
         'views/odoo_project_hospital_contact_person_views.xml',
         'views/odoo_project_hospital_specialization_views.xml',
-        'wizard/odoo_project_hospital_personal_doctor_for_patients_wizard_views.xml',
-        'wizard/odoo_project_hospital_diseases_report_wizard_view.xml',
     ],
 
     'demo': [

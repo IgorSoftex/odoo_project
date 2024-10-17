@@ -32,7 +32,7 @@
             </field>
         </record>
 
-        <record id="appoint_a_personal_doctor_act_window" model="ir.actions.act_window">
+        <record id="diseases_report_act_window" model="ir.actions.act_window">
             <field name="name">Diseases Report</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">odoo.project.hospital.diseases.report.wizard</field>

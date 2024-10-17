@@ -5,6 +5,12 @@
         <field name="model">odoo.project.hospital.diseases</field>
         <field name="arch" type="xml">
             <tree>
+                <header>
+                    <button name="%(odoo_project_hr_hospital.diseases_report_act_window)d"
+                            string="Diseases Report"
+                            type="action"
+                            display="always"/>
+                </header>
                 <field name="name"/>
                 <field name="disease_category"/>
                 <field name="description"/>

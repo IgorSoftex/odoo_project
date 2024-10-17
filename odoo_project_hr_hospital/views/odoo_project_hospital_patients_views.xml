@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
     <record id="odoo_project_hospital_patients_tree" model="ir.ui.view">
         <field name="name">odoo.project.hospital.patients.tree</field>
         <field name="model">odoo.project.hospital.patients</field>
@@ -7,8 +8,9 @@
             <tree>
                 <header>
                     <button name="%(odoo_project_hr_hospital.appoint_a_personal_doctor_act_window)d"
-                            string="Define a Personal Doctor"
-                            type="action"/>
+                            string="Appoint a Personal Doctor"
+                            type="action"
+                            display="always"/>
                 </header>
                 <field name="name"/>
                 <field name="surname"/>
@@ -23,6 +25,12 @@
         <field name="model">odoo.project.hospital.patients</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="%(odoo_project_hr_hospital.appoint_a_personal_doctor_act_window)d"
+                            string="Appoint a Personal Doctor"
+                            type="action"
+                            display="always"/>
+                </header>
                 <sheet>
                     <group>
                         <group>
@@ -68,4 +76,5 @@
               action="action_odoo_project_hospital_patients_window"
               parent="odoo_project_hospital_menu_catalog"
               name="Patients" sequence="200"/>
+
 </odoo>
