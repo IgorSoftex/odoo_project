@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--Create Diagnosis-->
+        <record id="diagnosis_1" model="odoo.project.hospital.diagnosis">
+            <field name="name">Chronic bronchitis</field>
+            <field name="description">Long-term cough</field>
+            <field name="visit_id" ref="visit_1"/>
+            <field name="disease_id" ref="diseases_2"/>
+            <field name="is_approved">True</field>
+        </record>
+
+        <record id="diagnosis_2" model="odoo.project.hospital.diagnosis">
+            <field name="name">Acute pneumonia</field>
+            <field name="description">Long-term cough</field>
+            <field name="visit_id" ref="visit_1"/>
+            <field name="disease_id" ref="diseases_3"/>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="diagnosis_3" model="odoo.project.hospital.diagnosis">
+            <field name="name">Acute bronchitis</field>
+            <field name="description">Long-term cough</field>
+            <field name="visit_id" ref="visit_2"/>
+            <field name="disease_id" ref="diseases_1"/>
+            <field name="is_approved">True</field>
+        </record>
+
+        <record id="diagnosis_4" model="odoo.project.hospital.diagnosis">
+            <field name="name">Acute bronchitis or Whooping cough</field>
+            <field name="description">Long-term cough</field>
+            <field name="visit_id" ref="visit_3"/>
+            <field name="disease_id" ref="diseases_4"/>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="diagnosis_5" model="odoo.project.hospital.diagnosis">
+            <field name="name">Acute appendicitis</field>
+            <field name="description">Abdominal pain</field>
+            <field name="visit_id" ref="visit_4"/>
+            <field name="disease_id" ref="diseases_1"/>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="diagnosis_6" model="odoo.project.hospital.diagnosis">
+            <field name="name">Poisoning</field>
+            <field name="description">The patient vomits</field>
+            <field name="visit_id" ref="visit_5"/>
+            <field name="disease_id" ref="diseases_5"/>
+            <field name="is_approved">False</field>
+        </record>
+
+        <record id="diagnosis_7" model="odoo.project.hospital.diagnosis">
+            <field name="name">Virus</field>
+            <field name="description">The patient vomits</field>
+            <field name="visit_id" ref="visit_5"/>
+            <field name="disease_id" ref="diseases_5"/>
+            <field name="is_approved">True</field>
+        </record>
+
+        <record id="diagnosis_8" model="odoo.project.hospital.diagnosis">
+            <field name="name">Virus</field>
+            <field name="description">The patient coughs</field>
+            <field name="visit_id" ref="visit_6"/>
+            <field name="disease_id" ref="diseases_4"/>
+            <field name="is_approved">True</field>
+        </record>
+
+        <record id="diagnosis_9" model="odoo.project.hospital.diagnosis">
+            <field name="name">Virus</field>
+            <field name="description"> The patient vomits</field>
+            <field name="visit_id" ref="visit_7"/>
+            <field name="disease_id" ref="diseases_5"/>
+            <field name="is_approved">True</field>
+        </record>
+
+    </data>
+</odoo>

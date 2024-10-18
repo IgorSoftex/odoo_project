@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--Create Diseases Category-->
+        <record id="diseases_1" model="odoo.project.hospital.diseases">
+            <field name="name">Appendicitis</field>
+            <field name="description">Pain in the abdomen</field>
+            <field name="disease_category" ref="diseases_category_2"/>
+        </record>
+
+        <record id="diseases_2" model="odoo.project.hospital.diseases">
+            <field name="name">Bronchitis</field>
+            <field name="description">Cough</field>
+            <field name="disease_category" ref="diseases_category_4"/>
+        </record>
+
+        <record id="diseases_3" model="odoo.project.hospital.diseases">
+            <field name="name">Pneumonia</field>
+            <field name="description">Cough and fever</field>
+            <field name="disease_category" ref="diseases_category_5"/>
+        </record>
+
+        <record id="diseases_4" model="odoo.project.hospital.diseases">
+            <field name="name">Whooping cough</field>
+            <field name="description">Severe coughing</field>
+            <field name="disease_category" ref="diseases_category_4"/>
+        </record>
+
+        <record id="diseases_5" model="odoo.project.hospital.diseases">
+            <field name="name">Poisoning</field>
+            <field name="description">Nausea and vomiting</field>
+            <field name="disease_category" ref="diseases_category_2"/>
+        </record>
+
+    </data>
+</odoo>

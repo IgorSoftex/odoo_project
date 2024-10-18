@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--Create Specialization-->
+        <record id="specialization_1" model="odoo.project.hospital.specialization">
+            <field name="name">Therapist</field>
+            <field name="competences">Knows how to use a stethoscope</field>
+        </record>
+
+        <record id="specialization_2" model="odoo.project.hospital.specialization">
+            <field name="name">Surgeon</field>
+            <field name="competences">Has a sharp knife</field>
+        </record>
+
+        <record id="specialization_3" model="odoo.project.hospital.specialization">
+            <field name="name">Gastroenterologist</field>
+            <field name="competences">Prescribes bitter pills</field>
+        </record>
+
+        <record id="specialization_4" model="odoo.project.hospital.specialization">
+            <field name="name">Nutritionist</field>
+            <field name="competences">Prescribes a diet</field>
+        </record>
+
+        <record id="specialization_5" model="odoo.project.hospital.specialization">
+            <field name="name">Family doctor</field>
+            <field name="competences">Treats the whole family</field>
+        </record>
+
+    </data>
+</odoo>

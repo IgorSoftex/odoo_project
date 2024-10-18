@@ -20,15 +20,15 @@ class HRHospitalExtendedVisits(models.Model):
                    ('cancelled', 'Cancelled'),
                    ]
     )
-    visit_date = fields.Datetime(
-        string='Actual visit date',
-        # required=True,
-        help='Actual date of visit',
-    )
     scheduled_visit_date = fields.Datetime(
         string='Scheduled visit date',
         # required=True,
         help='Scheduled date of visit',
+    )
+    visit_date = fields.Datetime(
+        string='Actual visit date',
+        # required=True,
+        help='Actual date of visit',
     )
     diagnosis_ids = fields.One2many(
         comodel_name='odoo.project.hospital.diagnosis',

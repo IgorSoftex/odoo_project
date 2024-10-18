@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--Create Doctor-->
+        <record id="doctor_1" model="odoo.project.hospital.doctors">
+            <field name="name">Eva</field>
+            <field name="surname">Brown</field>
+            <field name="description">Good Therapist</field>
+            <field name="phone">+380998569933</field>
+            <field name="gender">female</field>
+            <field name="specialization_id" ref="specialization_1"/>
+            <field name="intern">False</field>
+        </record>
+
+        <record id="doctor_2" model="odoo.project.hospital.doctors">
+            <field name="name">I</field>
+            <field name="surname">Bolit</field>
+            <field name="description">Nervous</field>
+            <field name="phone">+380990001122</field>
+            <field name="gender">male</field>
+            <field name="specialization_id" ref="specialization_2"/>
+            <field name="intern">False</field>
+        </record>
+
+        <record id="doctor_3" model="odoo.project.hospital.doctors">
+            <field name="name">Peter</field>
+            <field name="surname">Young</field>
+            <field name="description">Inexperienced</field>
+            <field name="phone">+380990005588</field>
+            <field name="gender">male</field>
+            <field name="specialization_id" ref="specialization_4"/>
+            <field name="intern">True</field>
+            <field name="mentor_doctor_id" ref="doctor_2"/>
+        </record>
+
+        <record id="doctor_4" model="odoo.project.hospital.doctors">
+            <field name="name">Sara</field>
+            <field name="surname">Connor</field>
+            <field name="description">Nervous</field>
+            <field name="phone">+380980214455</field>
+            <field name="gender">female</field>
+            <field name="specialization_id" ref="specialization_5"/>
+            <field name="intern">False</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--Create Patient-->
+        <record id="patient1" model="odoo.project.hospital.patients">
+            <field name="name">Brad</field>
+            <field name="surname">Pitt</field>
+            <field name="description">Actor</field>
+            <field name="phone">+38098336688</field>
+            <field name="gender">male</field>
+            <field name="personal_doctor_id" ref="doctor_1"/>
+            <field name="date_of_birth">1963-12-18</field>
+            <field name="passport_data">Passport CC 125635</field>
+        </record>
+
+        <record id="patient2" model="odoo.project.hospital.patients">
+            <field name="name">George</field>
+            <field name="surname">Clooney</field>
+            <field name="description">Actor</field>
+            <field name="phone">+380961112255</field>
+            <field name="gender">male</field>
+            <field name="personal_doctor_id" ref="doctor_2"/>
+            <field name="date_of_birth">1961-05-06</field>
+            <field name="passport_data">Passport CC 111555</field>
+        </record>
+
+        <record id="patient3" model="odoo.project.hospital.patients">
+            <field name="name">Adele</field>
+            <field name="surname"></field>
+            <field name="description">Singer</field>
+            <field name="phone">+380961112255</field>
+            <field name="gender">female</field>
+            <field name="personal_doctor_id" ref="doctor_3"/>
+            <field name="date_of_birth">1988-05-05</field>
+            <field name="passport_data">ID Card 112255</field>
+        </record>
+
+        <record id="patient4" model="odoo.project.hospital.patients">
+            <field name="name">Russell</field>
+            <field name="surname">Crowe</field>
+            <field name="description">Gladiator film</field>
+            <field name="phone">+380995552211</field>
+            <field name="gender">male</field>
+            <field name="personal_doctor_id" ref="doctor_1"/>
+            <field name="date_of_birth">1964-04-07</field>
+            <field name="passport_data"></field>
+        </record>
+
+    </data>
+</odoo>

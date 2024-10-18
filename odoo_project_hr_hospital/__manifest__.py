@@ -31,6 +31,13 @@
     ],
 
     'demo': [
+        'demo/specialization_demo_data.xml',
+        'demo/diseases_category_demo_data.xml',
+        'demo/diseases_demo_data.xml',
+        'demo/doctor_demo_data.xml',
+        'demo/patient_demo_data.xml',
+        'demo/visits_demo_data.xml',
+        'demo/diagnosis_demo_data.xml',
     ],
 
     'installable': True,

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--Create Diseases Category-->
+        <record id="diseases_category_1" model="odoo.project.hospital.diseases.category">
+            <field name="name">Internal organs</field>
+            <field name="complete_name">Internal organs</field>
+<!--            <field name="parent_id" ref="specialization_2"/> -->
+            <field name="parent_path">1/</field>
+        </record>
+
+        <record id="diseases_category_2" model="odoo.project.hospital.diseases.category">
+            <field name="name">Abdominal organs</field>
+            <field name="complete_name">Internal organs / Abdominal organs</field>
+            <field name="parent_id" ref="diseases_category_1"/>
+            <field name="parent_path">1/2//</field>
+        </record>
+
+        <record id="diseases_category_3" model="odoo.project.hospital.diseases.category">
+            <field name="name">Respiratory organs</field>
+            <field name="complete_name">Respiratory organs</field>
+<!--            <field name="parent_id" ref="specialization_2"/> -->
+            <field name="parent_path">3/</field>
+        </record>
+
+        <record id="diseases_category_4" model="odoo.project.hospital.diseases.category">
+            <field name="name">Upper respiratory system</field>
+            <field name="complete_name">Respiratory organs / Upper respiratory system</field>
+            <field name="parent_id" ref="diseases_category_3"/>
+            <field name="parent_path">3/4/</field>
+        </record>
+
+        <record id="diseases_category_5" model="odoo.project.hospital.diseases.category">
+            <field name="name">Lower respiratory system</field>
+            <field name="complete_name">Respiratory organs / Lower respiratory system</field>
+            <field name="parent_id" ref="diseases_category_3"/>
+            <field name="parent_path">3/5/</field>
+        </record>
+
+    </data>
+</odoo>

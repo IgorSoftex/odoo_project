@@ -7,6 +7,7 @@ class HRHospitalDiseases(models.Model):
     _order = 'name'
 
     name = fields.Char()
+    description = fields.Text()
     disease_category = fields.Many2one(
         comodel_name='odoo.project.hospital.diseases.category',
         string='Parent Category',
@@ -15,4 +16,3 @@ class HRHospitalDiseases(models.Model):
     active = fields.Boolean(
         default=True
     )
-    description = fields.Text()
