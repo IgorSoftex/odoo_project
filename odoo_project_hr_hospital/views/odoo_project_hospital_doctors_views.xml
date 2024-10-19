@@ -11,6 +11,7 @@
                 <field name="gender"/>
                 <field name="specialization_id"/>
                 <field name="description"/>
+                <field name="intern"/>
             </tree>
         </field>
     </record>
@@ -73,11 +74,71 @@
         </field>
     </record>
 
+    <record id="odoo_project_hospital_doctors_kanban" model="ir.ui.view">
+        <field name="name">odoo.project.hospital.doctors.kanban</field>
+        <field name="model">odoo.project.hospital.doctors</field>
+        <field name="arch" type="xml">
+            <kanban string="Doctor"
+                    quick_create="true"
+                    quick_create_view="odoo_project_hr_hospital.odoo_project_hospital_doctors_form"
+                    default_group_by="specialization_id">
+                <field name="name"/>
+                <field name="specialization_id"/>
+<!--                <field name="intern_ids_char"/> -->
+                <templates>
+                    <t t-name="kanban-menu">
+                        <t t-if="widget.editable"><a role="menuitem" type="edit" class="dropdown-item">Edit</a></t>
+                        <t t-if="widget.deletable"><a role="menuitem" type="delete" class="dropdown-item">
+                            Delete</a></t>
+                        <ul class="oe_kanban_colorpicker" data-field="color"/>
+                    </t>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="row">
+                                <div class="col-8">
+                                    <strong>Name: </strong><field name="name"/>
+                                </div>
+                                <div class="col-8" t-if="record.surname.value">
+                                    <strong>Surname: </strong><field name="surname"/>
+                                </div>
+                            </div>
+                            <div>
+                                <strong>Specialty: </strong><field name="specialization_id"/>
+                            </div>
+<!--                            <div t-if="record.intern_ids_char.value">
+                                <strong>Intern: </strong><field name="intern_ids_char"/>
+                            </div> -->
+                            <div>
+                                <button name="open_patient_visit_act_window_calendar"
+                                        string="Quick Creation Of a Patient Visit"
+                                        class="oe_button oe_highlight"
+                                        type="object"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="odoo_project_hospital_doctors_search" model="ir.ui.view">
+        <field name="name">odoo.project.hospital.doctors.search (odoo_project_hospital_doctors)</field>
+        <field name="model">odoo.project.hospital.doctors</field>
+        <field name="arch" type="xml">
+            <search string="Filters">
+                <field name="name"/>
+                <field name="surname"/>
+                <field name="mentor_doctor_id"/>
+                <field name="intern_ids"/>
+            </search>
+        </field>
+    </record>
+
     <record id="action_odoo_project_hospital_doctors_window" model="ir.actions.act_window">
         <field name="name">Doctors</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">odoo.project.hospital.doctors</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,kanban</field>
     </record>
 
     <menuitem id="odoo_project_hospital_menu_doctors"

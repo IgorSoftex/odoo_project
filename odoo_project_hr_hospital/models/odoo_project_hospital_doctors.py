@@ -26,3 +26,17 @@ class HRHospitalDoctors(models.Model):
         string='Interns',
         help='Interns',
     )
+
+    def open_patient_visit_act_window_calendar(self):
+        action = {
+            'name': 'Patient Visit',
+            'type': 'ir.actions.act_window',
+            'res_model': 'odoo.project.hospital.visits',
+            'domain': [('doctor_id', '=', self.id)],
+            'context': {
+                'personal_doctor_id': self.id,
+            },
+            'view_mode': 'calendar',
+            'view_id': self.env.ref('odoo_project_hr_hospital.odoo_project_hospital_visits_calendar').id,
+        }
+        return action
