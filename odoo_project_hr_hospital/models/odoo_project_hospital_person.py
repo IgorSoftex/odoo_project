@@ -35,8 +35,8 @@ class Person(models.AbstractModel):
                    ('other', 'Other/Undefined'), ]
     )
     photo = fields.Image(
-        max_width=512,
-        max_height=512,
+        max_width=128,
+        max_height=128,
     )
     active = fields.Boolean(
         default=True,

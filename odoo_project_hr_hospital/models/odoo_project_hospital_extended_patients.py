@@ -25,6 +25,18 @@ class HRHospitalExtendedPatients(models.Model):
         comodel_name='odoo.project.hospital.contact.person',
         string='Contact Person',
     )
+    visits_ids = fields.One2many(
+        comodel_name='odoo.project.hospital.visits',
+        inverse_name='patient_id',
+        string='Visits',
+        help='Patient Visits',
+    )
+    diagnosis_ids = fields.One2many(
+        comodel_name='odoo.project.hospital.diagnosis',
+        compute='_get_diagnosis',
+        string='Diagnosis',
+        help='Diagnosis',
+    )
 
     @api.depends('date_of_birth')
     def _compute_age(self):
@@ -33,3 +45,8 @@ class HRHospitalExtendedPatients(models.Model):
                 patient.age = date.today().year - patient.date_of_birth.year
             else:
                 patient.age = 0
+
+    def _get_diagnosis(self):
+        for record in self:
+            record.diagnosis_ids = [(6, 0, record.env['odoo.project.hospital.visits'].search(
+                [('patient_id', '=', record.id)]).diagnosis_ids.ids)]

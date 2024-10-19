@@ -44,11 +44,33 @@
                             <field name="description"/>
                         </group>
                         <group>
-                            <field name="gender" widget="radio"/>
+                            <field name="gender"
+                                   widget="radio"/>
                             <field name="passport_data"/>
-                            <field name="photo" widget="image"/>
+                            <field name="photo"
+                                   widget="image"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Visits">
+                            <group>
+                                <group>
+                                    <field name="visits_ids"
+                                           can_create="0"/>
+<!--                                           widget="many2many_tags" -->
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Diagnosis">
+                            <group>
+                                <group>
+                                    <field name="diagnosis_ids"
+                                           can_create="0"/>
+<!--                                           widget="many2many_tags" -->
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
