@@ -50,39 +50,41 @@ class HRHospitalExtendedVisits(models.Model):
     @api.depends('visit_date', 'patient_id', 'doctor_id')
     def _compute_visit_name(self):
         for visit in self:
-            visit.name = self._create_visit_name(
-                visit.scheduled_visit_date,
-                visit.visit_date,
-                visit.patient_id,
-                visit.doctor_id)
+            scheduled_visit_date_str = self._get_date_str(self.scheduled_visit_date)
+            visit_date_str = self._get_date_str(self.visit_date)
+            patient_name = self._get_patient_full_name(self.patient_id)
+            doctor_name = self._get_doctor_full_name(self.doctor_id)
+            if visit_date_str:
+                visit.name = visit_date_str + ' ' + patient_name + ' ' + doctor_name
+            else:
+                visit.name = scheduled_visit_date_str + ' ' + patient_name + ' ' + doctor_name
+            print('visit.name:', visit.name)
 
-    def _create_visit_name(
-            self,
-            scheduled_visit_date,
-            visit_date,
-            patient_id,
-            doctor_id):
-
-        if scheduled_visit_date:
-            visit_date_str = str(scheduled_visit_date)
-        elif visit_date:
-            visit_date_str = str(visit_date)
+    def _get_date_str(self, visit_date):
+        if visit_date:
+            date_str = str(visit_date)
         else:
-            visit_date_str = ''
+            date_str = ''
 
+        return date_str
+
+    def _get_patient_full_name(self, patient_id):
         if patient_id:
             patient_name = patient_id.name + ' ' + patient_id.surname
         else:
             patient_name = ''
+        patient_name = 'patient: ' + patient_name + ';'
 
+        return patient_name
+
+    def _get_doctor_full_name(self, doctor_id):
         if doctor_id:
             doctor_name = doctor_id.name + ' ' + doctor_id.surname
         else:
             doctor_name = ''
+        doctor_name = 'doctor: ' + doctor_name + ';'
 
-        visit_name = visit_date_str + ' ' + patient_name + ' ' + doctor_name
-
-        return visit_name
+        return doctor_name
 
     @api.ondelete(at_uninstall=False)
     def _unlink_visit(self):
