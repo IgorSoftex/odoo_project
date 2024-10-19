@@ -77,6 +77,7 @@
             <search string="Filters">
                 <field name="name"/>
                 <field name="surname"/>
+                <field name="phone"/>
             </search>
         </field>
     </record>

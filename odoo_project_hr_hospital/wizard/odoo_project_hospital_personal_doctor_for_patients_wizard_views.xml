@@ -15,9 +15,13 @@
                     </group>
                     <footer>
                         <button string="Appoint a Personal Doctor"
-                                name="appoint_a_personal_doctor" type="object"
-                                class="btn-primary" data-hotkey="d"/>
-                        <button string="Cancel" class="btn-secondary" special="cancel"
+                                name="appoint_a_personal_doctor"
+                                type="object"
+                                class="btn-primary"
+                                data-hotkey="d"/>
+                        <button string="Cancel"
+                                class="btn-secondary"
+                                special="cancel"
                                 data-hotkey="x"/>
                     </footer>
                 </form>

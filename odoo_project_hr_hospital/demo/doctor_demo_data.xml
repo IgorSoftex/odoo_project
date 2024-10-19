@@ -44,5 +44,16 @@
             <field name="intern">False</field>
         </record>
 
+        <record id="doctor_5" model="odoo.project.hospital.doctors">
+            <field name="name">Very</field>
+            <field name="surname">Young</field>
+            <field name="description">Inexperienced</field>
+            <field name="phone">+380982228833</field>
+            <field name="gender">female</field>
+            <field name="specialization_id" ref="specialization_5"/>
+            <field name="intern">True</field>
+            <field name="mentor_doctor_id" ref="doctor_2"/>
+        </record>
+
     </data>
 </odoo>

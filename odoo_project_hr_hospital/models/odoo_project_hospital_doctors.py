@@ -20,3 +20,9 @@ class HRHospitalDoctors(models.Model):
         string='Mentor doctor',
         help='Mentor doctor',
     )
+    intern_ids = fields.One2many(
+        comodel_name='odoo.project.hospital.doctors',
+        inverse_name='mentor_doctor_id',
+        string='Interns',
+        help='Interns',
+    )
