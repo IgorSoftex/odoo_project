@@ -18,9 +18,8 @@ class HRHospitalAppointPatientForVisits(models.TransientModel):
     )
 
     def appoint_patient_for_visits(self):
-        # ValueError: Expected singleton: odoo.project.hospital.visits(1, 2)
         # self.visit_ids.update({
-        #     'patient_id': self.patient_id,
+        #     'patient_id': self.patient_id.id,
         # })
         if self.patient_id:
             for visit in self.visit_ids:
