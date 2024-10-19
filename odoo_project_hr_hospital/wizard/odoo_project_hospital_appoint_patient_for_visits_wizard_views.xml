@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="appoint_patient_for_visits_form_view" model="ir.ui.view">
+            <field name="name">odoo.project.hospital.appoint.patient.for.visits.form</field>
+            <field name="model">odoo.project.hospital.appoint.patient.for.visits.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Appoints a patient for visits">
+                    <group>
+                        <group>
+                            <field name="visit_ids"
+                                   widget="many2many_tags"/>
+                            <field name="patient_id"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Appoint a patient for visits"
+                                name="appoint_patient_for_visits"
+                                type="object"
+                                class="btn-primary"
+                                data-hotkey="d"/>
+                        <button string="Cancel"
+                                class="btn-secondary"
+                                special="cancel"
+                                data-hotkey="x"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="appoint_patient_for_visits_act_window" model="ir.actions.act_window">
+            <field name="name">Appoint a patient for visits</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">odoo.project.hospital.appoint.patient.for.visits.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="appoint_patient_for_visits_form_view"/>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="model_odoo_project_hospital_visits"/>
+            <field name="binding_view_types">list</field>
+        </record>
+
+    </data>
+</odoo>
