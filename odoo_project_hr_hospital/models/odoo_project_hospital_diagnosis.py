@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class HRHospitalDiagnosis(models.Model):
@@ -20,6 +20,13 @@ class HRHospitalDiagnosis(models.Model):
         string='Patient visit',
         help='Patient visit',
     )
+    scheduled_visit_date = fields.Datetime(
+        string='Scheduled visit date',
+        compute='_compute_scheduled_visit_date',
+        store=True,
+        help='Scheduled date of visit',
+        readonly=True,
+    )
     disease_id = fields.Many2one(
         comodel_name='odoo.project.hospital.diseases',
         string='Disease',
@@ -32,3 +39,8 @@ class HRHospitalDiagnosis(models.Model):
     active = fields.Boolean(
         default=True
     )
+
+    @api.depends('visit_id')
+    def _compute_scheduled_visit_date(self):
+        for diagnosis in self:
+            diagnosis.scheduled_visit_date = diagnosis.visit_id.scheduled_visit_date
