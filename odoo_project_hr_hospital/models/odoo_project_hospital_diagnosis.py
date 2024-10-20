@@ -24,7 +24,14 @@ class HRHospitalDiagnosis(models.Model):
         string='Scheduled visit date',
         compute='_compute_scheduled_visit_date',
         store=True,
-        help='Scheduled date of visit',
+        help='Scheduled visit date',
+        readonly=True,
+    )
+    visit_date = fields.Datetime(
+        string='Actual visit date',
+        compute='_compute_visit_date',
+        store=True,
+        help='Actual visit date',
         readonly=True,
     )
     disease_id = fields.Many2one(
@@ -44,3 +51,8 @@ class HRHospitalDiagnosis(models.Model):
     def _compute_scheduled_visit_date(self):
         for diagnosis in self:
             diagnosis.scheduled_visit_date = diagnosis.visit_id.scheduled_visit_date
+
+    @api.depends('visit_id')
+    def _compute_visit_date(self):
+        for diagnosis in self:
+            diagnosis.visit_date = diagnosis.visit_id.visit_date
