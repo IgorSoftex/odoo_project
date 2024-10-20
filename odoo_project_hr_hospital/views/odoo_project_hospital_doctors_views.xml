@@ -21,6 +21,12 @@
         <field name="model">odoo.project.hospital.doctors</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="%(odoo_project_hr_hospital.diseases_report_act_window)d"
+                            string="Diseases Report"
+                            type="action"
+                            display="always"/>
+                </header>
                 <sheet>
                     <group>
 						<group>
