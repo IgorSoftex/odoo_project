@@ -9,8 +9,8 @@
                 <form string="Appoints a patient for visits">
                     <group>
                         <group>
-                            <field name="visit_ids"/>
-<!--                            <field name="visit_ids" widget="many2many_tags"/> -->
+                            <field name="visit_ids"
+                                   widget="many2many_tags"/>
                             <field name="patient_id"/>
                         </group>
                     </group>
