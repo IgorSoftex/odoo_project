@@ -62,11 +62,6 @@
 										</t>
 									</t>
 								</tbody>
-<!--								<t t-foreach="doc.visit_ids" t-as="visit">
-									<p><t t-out="visit.visit_date"/></p>
-									<p><t t-out="visit.description"/></p>
-									<p><t t-out="visit.patient_id.name"/></p>
-								</t> -->
 							</table>
 						</t>
 
@@ -85,7 +80,19 @@
 								</thead>
 								<tbody>
 									<t t-foreach="doc.patient_ids" t-as="patient">
-										<tr>
+										<t t-if="patient.last_visit_state == 'planned'">
+											<t t-set="bgColor" t-value="'#FFFF00'"/>
+										</t>
+										<t t-elif="patient.last_visit_state == 'completed'">
+											<t t-set="bgColor" t-value="'#008000'"/>
+										</t>
+										<t t-elif="patient.last_visit_state == 'cancelled'">
+											<t t-set="bgColor" t-value="'#FF0000'"/>
+										</t>
+										<t t-else="">
+											<t t-set="bgColor" t-value="'#FFFFFF'"/>
+										</t>
+										<tr t-attf-style="background-color:{{ bgColor }};">
 											<td>
 												<span t-out="patient.full_name"/>
 											</td>
@@ -98,13 +105,21 @@
 											<td>
 												<span t-out="patient.phone"/>
 											</td>
-<!--											<td>
-												<span t-out="patient.last_visit_id.state"/>
-											</td> -->
+											<td>
+												<span t-out="patient.last_visit_state"/>
+											</td>
 										</tr>
 									</t>
 								</tbody>
 							</table>
+
+							<div class="footer" style="border-top: 1px solid black; margin-top: 20px; padding-top: 10px;">
+								<div class="row">
+									<span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M:%S')"/>
+									<span t-field="doc.company_id.city"/>
+								</div>
+							</div>
+
 						</t>
 
 					</div>

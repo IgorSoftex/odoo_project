@@ -37,10 +37,10 @@ class HRHospitalExtendedPatients(models.Model):
         string='Diagnosis',
         help='Diagnosis',
     )
-    last_visit_id = fields.Many2one(
-        comodel_name='odoo.project.hospital.contact.visits',
-        string='Last Visit',
-        compute='compute_last_visit',
+    last_visit_state = fields.Char(
+        string='Last Visit State',
+        compute='compute_last_visit_state',
+        # store=True,
     )
 
     @api.depends('date_of_birth')
@@ -56,8 +56,10 @@ class HRHospitalExtendedPatients(models.Model):
             record.diagnosis_ids = [(6, 0, record.env['odoo.project.hospital.visits'].search(
                 [('patient_id', '=', record.id)]).diagnosis_ids.ids)]
 
-    def compute_last_visit(self):
+    def compute_last_visit_state(self):
         for record in self:
-            record.last_visit_id = record.env['odoo.project.hospital.visits'].search(
-                [('patient_id', '=', record.id)], limit=1, order='visit_date desc'
-            )
+            record.last_visit_state = record.env['odoo.project.hospital.visits'].search(
+                [('patient_id', '=', record.id)],
+                limit=1,
+                order='visit_date desc',
+            ).state
