@@ -98,9 +98,9 @@
 											<td>
 												<span t-out="patient.phone"/>
 											</td>
-											<td>
+<!--											<td>
 												<span t-out="patient.last_visit_id.state"/>
-											</td>
+											</td> -->
 										</tr>
 									</t>
 								</tbody>
