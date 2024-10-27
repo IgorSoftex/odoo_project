@@ -27,7 +27,7 @@
 
         <record id="patient3" model="odoo.project.hospital.patients">
             <field name="name">Adele</field>
-            <field name="surname"></field>
+            <field name="surname">Singer</field>
             <field name="description">Singer</field>
             <field name="phone">+380961112255</field>
             <field name="gender">female</field>

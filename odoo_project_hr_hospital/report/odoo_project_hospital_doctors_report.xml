@@ -36,12 +36,12 @@
 
 						<!-- Нижче повинно виводитися інформація з історією візитів до лікаря, у хронологічному порядку (найостанніші зверху). -->
 						<t t-if="doc.visit_ids">
-							<h3>Visit history</h3>
+							<h4>Visit history</h4>
 							<table class="table table-bordered" style="table-layout: fixed">
 								<thead style="display: table-row-group">
 									<tr>
 										<th class="text-center" style="width: 20%" scope="col">Visit date</th>
-										<th class="text-center" style="width: 30%" scope="col">Patient Name</th>
+										<th class="text-center" style="width: 30%" scope="col">Patient</th>
 										<th class="text-center" style="width: 50%" scope="col">Symptoms</th>
 									</tr>
 								</thead>
@@ -67,6 +67,43 @@
 									<p><t t-out="visit.description"/></p>
 									<p><t t-out="visit.patient_id.name"/></p>
 								</t> -->
+							</table>
+						</t>
+
+						<!-- Нижче, — таблична форма пацієнтів даного лікаря -->
+						<t t-if="doc.patient_ids">
+							<h4>Doctor Patients</h4>
+							<table class="table table-bordered" style="table-layout: fixed">
+								<thead style="display: table-row-group">
+									<tr>
+										<th class="text-center" style="width: 30%" scope="col">Patient</th>
+										<th class="text-center" style="width: 10%" scope="col">Gender</th>
+										<th class="text-center" style="width: 20%" scope="col">Date of Birth</th>
+										<th class="text-center" style="width: 20%" scope="col">Phone</th>
+										<th class="text-center" style="width: 20%" scope="col">Visit State</th>
+									</tr>
+								</thead>
+								<tbody>
+									<t t-foreach="doc.patient_ids" t-as="patient">
+										<tr>
+											<td>
+												<span t-out="patient.full_name"/>
+											</td>
+											<td>
+												<span t-out="patient.gender"/>
+											</td>
+											<td>
+												<span t-out="patient.date_of_birth.strftime('%Y-%m-%d')"/>
+											</td>
+											<td>
+												<span t-out="patient.phone"/>
+											</td>
+											<td>
+												<span t-out="patient.last_visit_id.state"/>
+											</td>
+										</tr>
+									</t>
+								</tbody>
 							</table>
 						</t>
 

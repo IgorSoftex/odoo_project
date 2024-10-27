@@ -32,6 +32,12 @@ class HRHospitalDoctors(models.Model):
         string='Visits',
         help='Patient Visits to this Doctor',
     )
+    patient_ids = fields.One2many(
+        comodel_name='odoo.project.hospital.patients',
+        inverse_name='personal_doctor_id',
+        string='Patients',
+        help='Patients of this Doctor',
+    )
 
     def open_patient_visit_act_window_calendar(self):
         action = {
