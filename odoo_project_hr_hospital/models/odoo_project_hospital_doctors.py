@@ -40,7 +40,6 @@ class HRHospitalDoctors(models.Model):
     )
     company_id = fields.Many2one('res.company',
                                  string='Company',
-                                 # default=lambda self: self.env.company,
                                  compute='compute_company_id',
                                  stored='False',)
 
