@@ -74,6 +74,31 @@
                                 </group>
                             </group>
                         </page>
+                        <page string="Visits" invisible="not visit_ids">
+                            <group>
+                                <group>
+                                    <field name="visit_ids">
+                                        <kanban create="false" class="o_modules_kanban">
+                                            <field name="description"/>
+                                            <templates>
+                                                <t t-name="kanban-box">
+                                                    <div t-attf-class="oe_kanban_global_click">
+                                                        <div class="row">
+                                                            <div class="col-8">
+                                                                <strong>Name: </strong><field name="description"/>
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <field name="description"/>
+                                                        </div>
+                                                    </div>
+                                                </t>
+                                            </templates>
+                                        </kanban>
+                                    </field>
+                                </group>
+                            </group>
+                        </page>
                     </notebook>
                 </sheet>
             </form>

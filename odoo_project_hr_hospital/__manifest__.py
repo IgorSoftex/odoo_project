@@ -29,6 +29,7 @@
         'views/odoo_project_hospital_diagnosis_views.xml',
         'views/odoo_project_hospital_contact_person_views.xml',
         'views/odoo_project_hospital_specialization_views.xml',
+        'report/odoo_project_hospital_doctors_report.xml',
     ],
 
     'demo': [

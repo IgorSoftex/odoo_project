@@ -5,6 +5,7 @@ from odoo.exceptions import UserError
 
 class HRHospitalExtendedVisits(models.Model):
     _inherit = "odoo.project.hospital.visits"
+    _order = "visit_date DESC"
 
     name = fields.Char(
         string="Who's visit",
