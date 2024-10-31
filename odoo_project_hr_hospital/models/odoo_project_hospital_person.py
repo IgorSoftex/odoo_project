@@ -24,15 +24,17 @@ class Person(models.AbstractModel):
         compute='_compute_full_name',
         store=False,
         readonly=True,
+        translate=True,
     )
     phone = fields.Char(
         size=40,
+        translate=True,
     )
     gender = fields.Selection(
         default='other',
         selection=[('male', 'Male'),
                    ('female', 'FeMale'),
-                   ('other', 'Other/Undefined'), ]
+                   ('other', 'Other/Undefined'), ],
     )
     photo = fields.Image(
         max_width=128,
