@@ -20,7 +20,6 @@ class HRHospitalExtendedPatients(models.Model):
     )
     passport_data = fields.Char(
         size=100,
-        translate=True,
     )
     contact_person_id = fields.Many2one(
         comodel_name='odoo.project.hospital.contact.person',
@@ -41,7 +40,6 @@ class HRHospitalExtendedPatients(models.Model):
     last_visit_state = fields.Char(
         string='Last Visit State',
         compute='compute_last_visit_state',
-        translate=True,
         # store=True,
     )
 

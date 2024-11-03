@@ -14,7 +14,6 @@ class HRHospitalSpecialization(models.Model):
     competences = fields.Text(
         string='Competences',
         help='Description of competence',
-        translate=True,
     )
     active = fields.Boolean(
         default=True

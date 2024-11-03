@@ -8,7 +8,6 @@ class HRHospitalVisits(models.Model):
     description = fields.Text(
         string='Symptoms',
         help='Description of symptoms',
-        translate=True,
     )
     active = fields.Boolean(
         default=True,

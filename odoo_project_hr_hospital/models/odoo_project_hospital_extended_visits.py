@@ -12,7 +12,6 @@ class HRHospitalExtendedVisits(models.Model):
         compute='_compute_visit_name',
         store=False,
         readonly=True,
-        translate=True,
     )
     state = fields.Selection(
         string="Visit state",
