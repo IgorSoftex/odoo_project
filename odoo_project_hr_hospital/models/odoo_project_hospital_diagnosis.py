@@ -14,7 +14,6 @@ class HRHospitalDiagnosis(models.Model):
     description = fields.Text(
         string='Treatment',
         help='Prescriptions for treatment',
-        translate=True,
     )
     visit_id = fields.Many2one(
         comodel_name='odoo.project.hospital.visits',

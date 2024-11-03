@@ -41,8 +41,7 @@ class HRHospitalDoctors(models.Model):
     company_id = fields.Many2one('res.company',
                                  string='Company',
                                  compute='compute_company_id',
-                                 stored='False',
-                                 )
+                                 stored='False',)
 
     def open_patient_visit_act_window_calendar(self):
         action = {
