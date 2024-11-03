@@ -9,15 +9,12 @@ class HRHospitalDiseasesCategory(models.Model):
     # _rec_name = 'complete_name'
     _order = 'name'
 
-    name = fields.Char(
-        translate=True,
-    )
+    name = fields.Char()
     complete_name = fields.Char(
         string='Complete Name',
         compute='_compute_complete_name',
         recursive=True,
         store=True,
-        translate=True,
     )
     parent_id = fields.Many2one(
         comodel_name='odoo.project.hospital.diseases.category',
@@ -26,7 +23,7 @@ class HRHospitalDiseasesCategory(models.Model):
         ondelete='cascade',
     )
     parent_path = fields.Char(
-        index=True,
+        index=True
     )
     child_id = fields.One2many(
         comodel_name='odoo.project.hospital.diseases.category',
@@ -36,9 +33,7 @@ class HRHospitalDiseasesCategory(models.Model):
     active = fields.Boolean(
         default=True
     )
-    description = fields.Text(
-        translate=True,
-    )
+    description = fields.Text()
 
     @api.depends('name', 'parent_id.complete_name')
     def _compute_complete_name(self):
