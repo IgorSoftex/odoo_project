@@ -27,7 +27,6 @@ class HRHospitalDiseasesCategory(models.Model):
     )
     parent_path = fields.Char(
         index=True,
-        translate=True,
     )
     child_id = fields.One2many(
         comodel_name='odoo.project.hospital.diseases.category',
