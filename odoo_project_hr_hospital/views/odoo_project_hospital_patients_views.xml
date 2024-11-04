@@ -24,6 +24,9 @@
                             string="Appoint a Personal Doctor"
                             type="action"
                             display="always"/>
+                    <button name="patient_test_action"
+                            string="Test action"
+                            type="object"/>
                 </header>
                 <sheet>
                     <group>
@@ -38,6 +41,7 @@
                             <field name="description"/>
                         </group>
                         <group>
+                            <field name="partner_id"/>
                             <field name="gender"
                                    widget="radio"/>
                             <field name="passport_data"/>
