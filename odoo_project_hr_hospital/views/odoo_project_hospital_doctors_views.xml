@@ -33,6 +33,7 @@
 							<field name="name"/>
 							<field name="surname"/>
 							<field name="specialization_id"/>
+                            <field name="partner_id"/>
 							<field name="gender" widget="radio"/>
 						</group>
 						<group>

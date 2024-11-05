@@ -42,6 +42,11 @@ class Person(models.AbstractModel):
         default=True,
     )
 
+    partner_id = fields.Many2one(
+        comodel_name="res.partner",
+        string="Partner",
+    )
+
     @api.depends('name', 'surname')
     def _compute_full_name(self):
         for person in self:

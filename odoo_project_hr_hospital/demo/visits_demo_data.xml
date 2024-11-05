@@ -112,5 +112,23 @@
             <field name="doctor_id" ref="doctor_1"/>
         </record>
 
+        <record id="visit_13" model="odoo.project.hospital.visits">
+            <field name="description">Nausea</field>
+            <field name="state">completed</field>
+            <field name="scheduled_visit_date" eval="datetime.now() - timedelta(days=5)"/>
+            <field name="visit_date" eval="datetime.now() - timedelta(days=2)"/>
+            <field name="patient_id" ref="patient4"/>
+            <field name="doctor_id" ref="doctor_3"/>
+        </record>
+
+        <record id="visit_14" model="odoo.project.hospital.visits">
+            <field name="description">Coughing</field>
+            <field name="state">completed</field>
+            <field name="scheduled_visit_date" eval="datetime.now() - timedelta(days=3)"/>
+            <field name="visit_date" eval="datetime.now() - timedelta(days=3)"/>
+            <field name="patient_id" ref="patient4"/>
+            <field name="doctor_id" ref="doctor_3"/>
+        </record>
+
     </data>
 </odoo>
