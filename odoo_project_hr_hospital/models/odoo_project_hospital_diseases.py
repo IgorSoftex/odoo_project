@@ -1,3 +1,5 @@
+from fnmatch import translate
+
 from odoo import models, fields
 
 
@@ -6,8 +8,12 @@ class HRHospitalDiseases(models.Model):
     _description = 'Diseases'
     _order = 'name'
 
-    name = fields.Char()
-    description = fields.Text()
+    name = fields.Char(
+        translate=True,
+    )
+    description = fields.Text(
+        translate=True,
+    )
     disease_category = fields.Many2one(
         comodel_name='odoo.project.hospital.diseases.category',
         string='Parent Category',

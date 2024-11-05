@@ -18,7 +18,7 @@ msgstr ""
 #. module: odoo_project_hr_hospital
 #: model:odoo.project.hospital.diagnosis,description:odoo_project_hr_hospital.diagnosis_12
 msgid " The patient vomits"
-msgstr "Пацієнта нудить (("
+msgstr "Пацієнта нудить"
 
 #. module: odoo_project_hr_hospital
 #: model:ir.actions.report,print_report_name:odoo_project_hr_hospital.odoo_project_hospital_doctor_report
@@ -161,7 +161,7 @@ msgstr ""
 #. module: odoo_project_hr_hospital
 #: model:ir.model.fields,field_description:odoo_project_hr_hospital.field_odoo_project_hospital_patients__age
 msgid "Age"
-msgstr ""
+msgstr "Вік"
 
 #. module: odoo_project_hr_hospital
 #: model:odoo.project.hospital.diseases,name:odoo_project_hr_hospital.diseases_1
