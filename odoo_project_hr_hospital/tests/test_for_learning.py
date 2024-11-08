@@ -11,7 +11,7 @@ class TestForLearning(TestForLearningCommon):
     @classmethod
     def setUpClass(cls):
         super(TestForLearning, cls).setUpClass()
-        print('class TestForLearning(TransactionCase) from test_for_learning.py')
+        # print('class TestForLearning(TransactionCase) from test_for_learning.py')
 
     def test_01_print_only(self):
         """
