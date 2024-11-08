@@ -26,7 +26,8 @@ class HRHospitalDiseasesCategory(models.Model):
         ondelete='cascade',
     )
     parent_path = fields.Char(
-        index=True
+        index=True,
+        unaccent=False
     )
     child_id = fields.One2many(
         comodel_name='odoo.project.hospital.diseases.category',

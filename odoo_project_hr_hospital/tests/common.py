@@ -1,26 +1,25 @@
-from odoo.tests.common import TransactionCase
+from odoo.tests import TransactionCase
+
+"""
+TransactionCase
+   setUpClass()         - метод, котрий викликається перед виконанням тестових методів
+       setUp()          - дозволяє виконувати певні дії перед виконанням тестового методу.
+       test_method_1() 
+       tearDown()       - дозволяє виконувати певні дії після виконанням тестового методу.
+
+       setUp()
+       test_method_1()
+       tearDown()
+   tearDownClass()      - метод, котрий викликається після виконання всіх тестових методів
+"""
 
 
-class TestCommon(TransactionCase):
+class TestForLearningCommon(TransactionCase):
+    """
+    This test created for learning only
+    """
 
-    def setUp(self):
-        super(TestCommon, self).setUp()
-        self.group_library_user = self.env.ref(
-            'school_lesson_6_2.group_library_user')
-        self.group_library_admin = self.env.ref(
-            'school_lesson_6_2.group_library_admin')
-        self.library_user = self.env['res.users'].create({
-            'name': 'Library User',
-            'login': 'library_user',
-            'groups_id': [(4, self.env.ref('base.group_user').id),
-                          (4, self.group_library_user.id)],
-        })
-        self.library_admin = self.env['res.users'].create({
-            'name': 'Library Admin',
-            'login': 'library_admin',
-            'groups_id': [(4, self.env.ref('base.group_user').id),
-                          (4, self.group_library_admin.id)],
-        })
-        self.reader = self.env['res.partner'].create({'name': 'Demo Reader'})
-        self.book_demo = self.env['library.book'].create({
-            'name': 'Demo Book'})
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        print('class TestForLearningCommon(TransactionCase) from common.py')
