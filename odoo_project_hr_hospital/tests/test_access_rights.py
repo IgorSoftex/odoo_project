@@ -20,10 +20,6 @@ class TestAccessRights(TestForLearningCommon):
         Access rights: doctor can create a patient
         """
         # print('test_01_access_rights_doctor_can_create_patient')
-        # print('self.patient:', self.patient, self.patient.id, self.patient.name)
-        # # self.patient: odoo.project.hospital.patients(22,)  22  Patient for test
-        # print('self.doctor:', self.doctor, self.doctor.id, self.doctor.name)
-        # # self.doctor:  odoo.project.hospital.doctors(41,)   41  Doctor for test
 
         visit = self.env['odoo.project.hospital.visits'].create({
             'description': 'Test visit 1',
@@ -32,7 +28,6 @@ class TestAccessRights(TestForLearningCommon):
             'patient_id': self.patient.id,
             'doctor_id': self.doctor.id,
         })
-        # print('Test visit 1:', visit, visit.id, visit.name)
         return True
 
     @users('patient_user')
@@ -40,11 +35,7 @@ class TestAccessRights(TestForLearningCommon):
         """
         Access rights: doctor can't create a patient
         """
-        # print('test_01_access_rights_doctor_can_create_patient')
-        # print('self.patient:', self.patient, self.patient.id, self.patient.name)
-        # # self.patient: odoo.project.hospital.patients(22,)  22  Patient for test
-        # print('self.doctor:', self.doctor, self.doctor.id, self.doctor.name)
-        # # self.doctor:  odoo.project.hospital.doctors(41,)   41  Doctor for test
+        # print('test_02_access_rights_patient_cannot_create_patient')
         with self.assertRaises(AccessError):
             visit = self.env['odoo.project.hospital.visits'].create({
                 'description': 'Test visit 2',
