@@ -3,6 +3,9 @@ from odoo import models, fields, api
 
 
 class HRHospitalExtendedPatients(models.Model):
+    """
+    This is a module for patients
+    """
     _inherit = "odoo.project.hospital.patients"
 
     personal_doctor_id = fields.Many2one(

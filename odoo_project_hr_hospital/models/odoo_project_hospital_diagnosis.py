@@ -2,6 +2,9 @@ from odoo import models, fields, api
 
 
 class HRHospitalDiagnosis(models.Model):
+    """
+    This is a module for diagnosis
+    """
     _name = 'odoo.project.hospital.diagnosis'
     _description = 'Diagnosis'
 

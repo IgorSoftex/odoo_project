@@ -4,6 +4,9 @@ from odoo.exceptions import UserError
 
 
 class HRHospitalExtendedVisits(models.Model):
+    """
+    This is a module for patient visits
+    """
     _inherit = "odoo.project.hospital.visits"
     _order = "visit_date DESC"
 

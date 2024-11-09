@@ -2,6 +2,9 @@ from odoo import models, fields
 
 
 class HRHospitalPatients(models.Model):
+    """
+    This is a module for patients
+    """
     _name = 'odoo.project.hospital.patients'
     _description = 'Patients'
     _inherit = "odoo.project.hospital.person"

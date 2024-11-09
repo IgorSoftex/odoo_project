@@ -2,6 +2,9 @@ from odoo import models, fields, api
 
 
 class HRHospitalDiseasesCategory(models.Model):
+    """
+    This is a module for diseases categories
+    """
     _name = 'odoo.project.hospital.diseases.category'
     _description = 'Diseases category'
     _parent_name = "parent_id"

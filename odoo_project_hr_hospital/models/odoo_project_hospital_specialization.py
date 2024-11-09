@@ -2,6 +2,9 @@ from odoo import models, fields
 
 
 class HRHospitalSpecialization(models.Model):
+    """
+    This is a module for doctors specialization
+    """
     _name = 'odoo.project.hospital.specialization'
     _description = 'Specialization'
 

@@ -4,6 +4,9 @@ from odoo import models, fields
 
 
 class HRHospitalDiseases(models.Model):
+    """
+    This is a module for diseases
+    """
     _name = 'odoo.project.hospital.diseases'
     _description = 'Diseases'
     _order = 'name'
