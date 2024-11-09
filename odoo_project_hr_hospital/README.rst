@@ -1,0 +1,5 @@
+Odoo School - вивчаємо ODOO ERP
+========================================
+Курси по Odoo
+----------------------------------------
+.. image:: /hr_hospital/static/description/main.jpg
