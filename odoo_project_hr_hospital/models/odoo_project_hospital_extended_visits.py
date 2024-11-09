@@ -54,6 +54,9 @@ class HRHospitalExtendedVisits(models.Model):
 
     @api.depends('visit_date', 'patient_id', 'doctor_id')
     def _compute_visit_name(self):
+        """
+        This method computes visit_name
+        """
         for visit in self:
             scheduled_visit_date_str = self._get_date_str(visit.scheduled_visit_date)
             visit_date_str = self._get_date_str(visit.visit_date)
@@ -65,6 +68,9 @@ class HRHospitalExtendedVisits(models.Model):
                 visit.name = scheduled_visit_date_str + ' ' + patient_name + ' ' + doctor_name
 
     def _get_date_str(self, visit_date):
+        """
+        This method gets date_str
+        """
         if visit_date:
             date_str = str(visit_date)
         else:
@@ -73,6 +79,9 @@ class HRHospitalExtendedVisits(models.Model):
         return date_str
 
     def _get_patient_full_name(self, patient_id):
+        """
+        This method gets patient_full_name
+        """
         if patient_id:
             patient_name = patient_id.name + ' ' + patient_id.surname
         else:
@@ -82,6 +91,9 @@ class HRHospitalExtendedVisits(models.Model):
         return patient_name
 
     def _get_doctor_full_name(self, doctor_id):
+        """
+        This method gets doctor_full_name
+        """
         if doctor_id:
             doctor_name = doctor_id.name + ' ' + doctor_id.surname
         else:

@@ -46,6 +46,9 @@ class HRHospitalDiseasesCategory(models.Model):
 
     @api.depends('name', 'parent_id.complete_name')
     def _compute_complete_name(self):
+        """
+        This method computes a complete name
+        """
         for disease_category in self:
             if disease_category.parent_id:
                 disease_category.complete_name = '%s / %s' % (

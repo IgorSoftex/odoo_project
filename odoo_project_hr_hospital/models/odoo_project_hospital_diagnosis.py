@@ -53,10 +53,16 @@ class HRHospitalDiagnosis(models.Model):
 
     @api.depends('visit_id')
     def _compute_scheduled_visit_date(self):
+        """
+        This method computes a scheduled visit date
+        """
         for diagnosis in self:
             diagnosis.scheduled_visit_date = diagnosis.visit_id.scheduled_visit_date
 
     @api.depends('visit_id')
     def _compute_visit_date(self):
+        """
+        This method computes a visit date
+        """
         for diagnosis in self:
             diagnosis.visit_date = diagnosis.visit_id.visit_date

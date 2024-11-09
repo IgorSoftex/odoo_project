@@ -48,6 +48,9 @@ class HRHospitalExtendedPatients(models.Model):
 
     @api.depends('date_of_birth')
     def _compute_age(self):
+        """
+        This method computes an age
+        """
         for patient in self:
             if patient.date_of_birth:
                 patient.age = date.today().year - patient.date_of_birth.year
@@ -55,11 +58,17 @@ class HRHospitalExtendedPatients(models.Model):
                 patient.age = 0
 
     def _get_diagnosis(self):
+        """
+        This method gets diagnosis
+        """
         for record in self:
             record.diagnosis_ids = [(6, 0, record.env['odoo.project.hospital.visits'].search(
                 [('patient_id', '=', record.id)]).diagnosis_ids.ids)]
 
     def compute_last_visit_state(self):
+        """
+        This method computes last_visit_state
+        """
         for record in self:
             record.last_visit_state = record.env['odoo.project.hospital.visits'].search(
                 [('patient_id', '=', record.id)],

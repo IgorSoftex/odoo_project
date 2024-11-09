@@ -48,6 +48,9 @@ class HRHospitalDoctors(models.Model):
                                  )
 
     def open_patient_visit_act_window_calendar(self):
+        """
+        This method opens a patient visit calendar
+        """
         action = {
             'name': 'Patient Visit',
             'type': 'ir.actions.act_window',
@@ -62,5 +65,8 @@ class HRHospitalDoctors(models.Model):
         return action
 
     def compute_company_id(self):
+        """
+        This method computes a company_id
+        """
         for record in self:
             record.company_id = record.env.company

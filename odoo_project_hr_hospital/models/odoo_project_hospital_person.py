@@ -49,6 +49,9 @@ class Person(models.AbstractModel):
 
     @api.depends('name', 'surname')
     def _compute_full_name(self):
+        """
+        This method computes full_name
+        """
         for person in self:
             if person.name and person.surname:
                 person.full_name = person.name + ' ' + person.surname
