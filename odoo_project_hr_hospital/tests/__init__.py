@@ -1,1 +1,1 @@
-from . import test_for_learning
+from . import test_access_rights
