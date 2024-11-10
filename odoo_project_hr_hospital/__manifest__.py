@@ -1,11 +1,12 @@
 {
-    'name': 'hr hospital',
-    'description': "Ihor's module",
+    'name': 'HR Hospital (Odoo school)',
+    'description': "Module for Odoo school course",
+    'summary': "Odoo module for hospital",
     'version': '17.0.1.0.0',
     'category': 'Customizations',
-    'license': 'OPL-1',
+    'license': 'LGPL-3',
     'website': 'https://odoo.school/',
-    'author': 'Ihor',
+    'author': 'Ihor Pastushenko, the novice programmer',
 
     'depends': [
         'base',
@@ -48,6 +49,7 @@
     'auto_install': False,
 
     'images': [
-        'static/description/icon.png'
+        'static/description/icon.png',
+        'static/description/main.jpeg',
     ],
 }
